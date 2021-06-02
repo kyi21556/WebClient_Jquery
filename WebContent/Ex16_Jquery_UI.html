@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 필수 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--  Jquery  UI (js 파일(함수) , css 파일)  -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+<link rel="stylesheet" 	href="//code.jquery.com/ui/1.12.1/themes/sunny/jquery-ui.css">
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+		$(document).ready(function(){
+			  var availableTags = [
+			      "ActionScript",
+			      "AppleScript",
+			      "Asp",
+			      "BASIC",
+			      "C",
+			      "C++",
+			      "Clojure",
+			      "COBOL",
+			      "ColdFusion",
+			      "Erlang",
+			      "Fortran",
+			      "Groovy",
+			      "Haskell",
+			      "Java",
+			      "JavaScript",
+			      "Lisp",
+			      "Perl",
+			      "PHP",
+			      "Python",
+			      "Ruby",
+			      "Scala",
+			      "Scheme"
+			    ];
+			 /* 
+			 	직접구현: autocomplete함수를 직접구현하려면
+			 	
+			 	
+			 	availableTags가 DB 테이블에 있다면...
+			 	서버에 A 글자를 전송하면...like %A%
+			 	1. 가공을 server에서(java도...디자인까지) 할 것이냐
+			 	2. server는 데이터만 찾고 클라이언트에게 데이터만 전송하고 가공은 클라이언트에게 맡길 것이냐 (이방식이 트렌드)
+			  
+			  
+			  $('#tags').autocomplete(
+				{
+					source:availableTags
+				}		  
+			  );
+			  
+			 */
+		});
+	</script>
+</head>
+<body>
+	<div class="ui-widget">
+  	<label for="tags">Tags: </label>
+  	<input id="tags">
+</div>
+</body>
+</html>

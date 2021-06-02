@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	//$(document).ready(function(){});
+		$(function(){   //줄임표현
+			$('#btncopy').click(function(){
+				///let data = $('#txtuserid').val();
+				//$('#txtcopyuserid').val(data);
+				$('#txtcopyuserid').val($('#txtuserid').val());
+			});
+			
+			//select 태그
+			$('#select_hobby').change(function() {
+				const text = $(':selected').text();
+				const text2 = $('#select_hobby option:selected').text();
+				const val = $('#select_hobby').val();
+				console.log(text);
+				console.log(text2);
+				console.log(val);
+			});
+			
+			
+			//이벤트
+			$('#txtpwd2').keyup(function() {
+				if($('#txtpwd').val() != $('#txtpwd2').val()) {
+					
+					//innerHTML(태그가 해석), innerTEXT(태그 있는 그래도 출력)
+					$('#message').text("<h3>암호가 일치하지 않아요</h3>");
+				} else {
+					$('#message').html("<h3>암호가 일치해요</h3>");
+				}
+			});
+			
+			//console.log($('input')); -> body안에 있는 input태크 모두를 가지고 오기때문에 Array이다.
+			$('input').focus(function(){
+				console.log($(this)); //POINT
+				$(this).css('background-color','gray');
+			});
+			
+			$('input').blur(function(){
+				console.log($(this));
+				$(this).css('background-color','white');
+			});
+			
+			
+			//toggle (on & off) 이벤트
+			//.hover(function() {}, function() {})
+			$('p').hover(function() {
+				$(this).css('background-color', 'gold');
+			}, function() {
+				$(this).css('background-color', 'red');
+			});
+			
+			
+		});
+	</script>
+<title>Insert title here</title>
+</head>
+<body>
+	<p>Jquery hover(mouseover , mouseleave)</p>
+	
+	ID:<input type="text" id="txtuserid">
+	<hr>
+	<input type="button" id="btncopy" value="copy">
+	<hr>
+	Copy ID:<input type="text" id="txtcopyuserid">
+	
+	<hr>
+	<select id="select_hobby">
+		<option value="JAVA">java</option>
+		<option value="SCRIPT"> script</option>
+		<option>jdbc</option>
+	</select>
+	<br>
+	<input type="text" id="txtselect">
+	<hr>
+	<table style="border: 1px solid red;">
+		<tr>
+			<td>암호</td>
+			<td>
+				<input type="text" id="txtpwd" size="20" maxlength="5">
+			</td>
+		</tr>
+		<tr>
+			<td>암호확인</td>
+			<td>
+				<input type="text" id="txtpwd2" size="20" maxlength="5">
+			</td>
+		</tr>
+	</table>
+	<div id="message" style="color: red"></div>
+</body>
+</html>
